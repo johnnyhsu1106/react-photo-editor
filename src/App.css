@@ -1,0 +1,78 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 10px 0 0 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 
+    "image sidebar"
+    "slider sidebar";
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+}
+
+.main-image {
+  grid-area: image;
+  background-image: url("https://cdn.pixabay.com/photo/2023/06/27/10/51/man-8091933_1280.jpg");
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-right: 20px;
+}
+
+.sidebar-option {
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  background-color: #eee;
+  padding: 1rem;
+  transition: background-color 150ms;
+}
+
+.sidebar-option:hover, .sidebar-option:focus {
+  color: #eee;
+  background-color: #666;
+}
+
+.sidebar-option.active {
+  color: #fff;
+  background-color: #333;
+}
+
+.sidebar-option:last-child::after {
+  display: none;
+}
+
+.sidebar-option[type='reset'] {
+  color: #fff;
+  background-color: #666;
+}
+
+.slider-container {
+  grid-area: slider;
+  padding: 2rem 5rem;
+}
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+}
