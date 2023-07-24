@@ -8,11 +8,12 @@ const Sidebar = ({ options, selectedOptionIndex, onSelectOption, onResetOptions 
     <div className="sidebar">
       {options.map((option, index) => {
         const { name } = option; 
+
         return (
           <SidebarOption
             key={index}
             index={index}
-            active={index === selectedOptionIndex}
+            isActive={index === selectedOptionIndex}
             name={name}
             onSelectOption={onSelectOption}
           />
