@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { DEFAULT_OPTIONS } from './data';
+import { DEFAULT_OPTIONS } from './options';
 import './App.css'
 
 import Sidebar from './Sidebar';
