@@ -1,10 +1,10 @@
 import React from 'react'
 
-const SidebarOption = ({ name, index, isActive, onSelectOption }) => {
+const SidebarOption = ({ name, isActive, onClickOption }) => {
   return (
     <button 
       className={`sidebar-option ${isActive ? 'active' : ''}`}
-      onClick={() => {onSelectOption(index)}}
+      onClick={onClickOption}
     >
       {name}
     </button>

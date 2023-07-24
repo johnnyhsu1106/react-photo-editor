@@ -12,10 +12,9 @@ const Sidebar = ({ options, selectedOptionIndex, onSelectOption, onResetOptions 
         return (
           <SidebarOption
             key={index}
-            index={index}
             isActive={index === selectedOptionIndex}
             name={name}
-            onSelectOption={onSelectOption}
+            onClickOption={() => { onSelectOption(index) }}
           />
         )
       })}
