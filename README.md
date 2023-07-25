@@ -1,5 +1,5 @@
 ### Getting Started
-This is a To Photo Editor built based on React.
+This is a Photo Editor built based on React.
 
 Checkout this repo, install dependencies, then start the gulp process with the following:
 ```
