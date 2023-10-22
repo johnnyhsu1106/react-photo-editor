@@ -1,6 +1,8 @@
-import React from 'react'
-
-const SidebarOption = ({ name, isActive, onClickOption }) => {
+const SidebarOption = ({ 
+  name, 
+  isActive, 
+  onClickOption 
+}) => {
   return (
     <button 
       className={`sidebar-option ${isActive ? 'active' : ''}`}

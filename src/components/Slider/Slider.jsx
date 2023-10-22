@@ -1,6 +1,9 @@
-import React from 'react'
-
-const Slider = ( {min, max, value, onChangeSlider }) => {
+const Slider = ({
+  min, 
+  max, 
+  value, 
+  onChangeSlider 
+}) => {
   return (
     <div className="slider-container">
       <input

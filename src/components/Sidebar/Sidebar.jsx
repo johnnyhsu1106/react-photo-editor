@@ -1,9 +1,11 @@
-
-
-import React from 'react'
 import SidebarOption from './SidebarOption';
 
-const Sidebar = ({ options, selectedOptionIndex, onSelectOption, onResetOptions }) => {
+const Sidebar = ({ 
+  options, 
+  selectedOptionIndex, 
+  onSelectOption, 
+  onResetOptions 
+}) => {
   return (
     <div className="sidebar">
       {options.map((option, index) => {
