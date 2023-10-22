@@ -1,13 +1,11 @@
+import Container from '../Container/Container';
 import { usePhotoEditorContext } from '../../context/PhotoEditorContext';
 
 const Image = () => {
   const { imageStyle } = usePhotoEditorContext();
   return (
-    <div 
-      className="main-image"
-      style={imageStyle} 
-    />
+    <Container className='main-image' style={imageStyle} />
   )
-}
+};
 
 export default Image;

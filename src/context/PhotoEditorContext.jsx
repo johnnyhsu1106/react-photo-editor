@@ -12,9 +12,9 @@ const usePhotoEditorContext = () => {
   return photoEditor;
 };
 
-
-
 const PhotoEditorProvider = ({ children }) => {
+  const [imageUrl, setImageUrl] = useState('');
+  const [fileName, setFileName] = useState('');
   const [options, setOptions] = useState(DEFAULT_OPTIONS);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
 
@@ -36,6 +36,19 @@ const PhotoEditorProvider = ({ children }) => {
     setOptions(DEFAULT_OPTIONS);
   };
 
+  const handleImageUpload = (file) => {
+    const reader = new FileReader();
+
+    if (file) {
+      setFileName(`modified-${file.name}`);
+      reader.readAsDataURL(file);
+    }
+
+    reader.onloadend = () => {
+      setImageUrl(reader.result);
+    };
+  };
+
 
   const imageStyle = useMemo(() => {
     const filters = options.map(option => {
@@ -43,18 +56,21 @@ const PhotoEditorProvider = ({ children }) => {
       return `${property}(${value}${unit})`
     }).join(' ');
 
-    return { filter: filters };
+    return { filter: filters, backgroundImage: `url(${imageUrl})`};
   
-  }, [options]);
+  }, [options, imageUrl]);
 
   const value = {
+    fileName,
+    imageUrl,
+    imageStyle,
     options,
     selectedOptionIndex,
     selectedOption,
+    handleImageUpload,
     handleOptionSelect,
     handleSliderChange,
     handleOptionsReset,
-    imageStyle
   };
 
   return (

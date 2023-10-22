@@ -1,10 +1,10 @@
-
 const Container = ({
-  className,
+  className='',
+  style={},
   children
 }) => {
   return (
-    <div className={className}>
+    <div className={className} style={style}>
       {children}
     </div>
   )

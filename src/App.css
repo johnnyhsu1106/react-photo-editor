@@ -21,7 +21,6 @@ body {
 
 .main-image {
   grid-area: image;
-  background-image: url("https://cdn.pixabay.com/photo/2023/06/27/10/51/man-8091933_1280.jpg");
   width: 95%;
   height: 100%;
   margin: 0 auto;
@@ -77,4 +76,11 @@ body {
 .slider {
   width: 100%;
   cursor: pointer;
+}
+
+.image-upload {
+   margin-top: 100px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
 }

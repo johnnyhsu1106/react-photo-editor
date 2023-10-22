@@ -1,5 +1,3 @@
-
-
 const SidebarOption = ({ 
   name, 
   isActive, 
