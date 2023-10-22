@@ -1,11 +1,14 @@
+import { usePhotoEditorContext } from '../../context/PhotoEditorContext';
 import SidebarOption from './SidebarOption';
 
-const Sidebar = ({ 
-  options, 
-  selectedOptionIndex, 
-  onSelectOption, 
-  onResetOptions 
-}) => {
+
+const Sidebar = () => {
+  const {
+    options, 
+    selectedOptionIndex, 
+    handleOptionSelect,
+    handleOptionsReset
+  } = usePhotoEditorContext();
   return (
     <div className="sidebar">
       {options.map((option, index) => {
@@ -16,14 +19,14 @@ const Sidebar = ({
             key={index}
             isActive={index === selectedOptionIndex}
             name={name}
-            onClickOption={() => { onSelectOption(index) }}
+            onClickOption={() => { handleOptionSelect(index) }}
           />
         )
       })}
       <button
         className='sidebar-option' 
         type='reset'
-        onClick={onResetOptions}
+        onClick={handleOptionsReset}
       > Reset 
       </button>
   </div>
