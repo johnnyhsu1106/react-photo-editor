@@ -7,14 +7,14 @@ const PhotoEditorContext = createContext(null);
 const usePhotoEditorContext = () => {
   const photoEditor = useContext(PhotoEditorContext);
   if (photoEditor === null) {
-    throw new Error('usePhotoContext must be used within PhotoProvider')
+    throw new Error('usePhotoEditorContext must be used within PhotoEditorProvider')
   }
   return photoEditor;
 };
 
+
 const PhotoEditorProvider = ({ children }) => {
-  const [imageUrl, setImageUrl] = useState('');
-  const [fileName, setFileName] = useState('');
+  const [imageUrl, setImageUrl] = useState(null);
   const [options, setOptions] = useState(DEFAULT_OPTIONS);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
 
@@ -37,12 +37,12 @@ const PhotoEditorProvider = ({ children }) => {
   };
 
   const handleImageUpload = (file) => {
-    const reader = new FileReader();
-
-    if (file) {
-      setFileName(`modified-${file.name}`);
-      reader.readAsDataURL(file);
+    if (!file) {
+      return;
     }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
     reader.onloadend = () => {
       setImageUrl(reader.result);
@@ -56,12 +56,13 @@ const PhotoEditorProvider = ({ children }) => {
       return `${property}(${value}${unit})`
     }).join(' ');
 
-    return { filter: filters, backgroundImage: `url(${imageUrl})`};
-  
+    return { 
+      backgroundImage: `url(${imageUrl})`,
+      filter: filters
+    };
   }, [options, imageUrl]);
 
   const value = {
-    fileName,
     imageUrl,
     imageStyle,
     options,

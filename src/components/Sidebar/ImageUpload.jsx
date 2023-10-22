@@ -12,7 +12,7 @@ const ImageUpload = () => {
         id="image-upload"
         type="file" 
         accept="image/*" 
-        onChange={(e) => handleImageUpload(e.target.files[0])} 
+        onChange={(e) => handleImageUpload(e.target.files?.[0])} 
       />
     </Container>
   );
